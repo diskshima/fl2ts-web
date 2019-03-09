@@ -1,0 +1,27 @@
+{
+  "name": "fl2ts",
+  "version": "0.1.0",
+  "description": "Flow to TypeScript converter",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "flow",
+    "typescript"
+  ],
+  "author": "Daisuke Shimamoto <diskshima@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^16.8.7",
+    "@types/react-dom": "^16.8.2",
+    "awesome-typescript-loader": "^5.2.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.3.3333",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  }
+}
