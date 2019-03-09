@@ -23,5 +23,10 @@
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "@types/prismjs": "^1.9.1",
+    "prismjs": "^1.15.0",
+    "react-simple-code-editor": "^0.9.3"
   }
 }
