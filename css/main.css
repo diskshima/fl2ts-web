@@ -3,14 +3,22 @@ h1 {
   margin: 0.7em;
 }
 
+h3 {
+  font-size: 1em;
+  margin: 0 0 0.5em 0;
+}
+
 #main {
   display: flex;
 }
 
-#main > .editor {
-  border: #c0c0c0 solid 1px;
+#main > .editor-box {
   display: flex;
-  flex-basis: 100%;
-  height: 90vh;
+  flex: 1;
+  flex-direction: column;
   margin: 0 1vw;
+}
+
+#main > .editor-box > div {
+  border: #c0c0c0 solid 1px;
 }
