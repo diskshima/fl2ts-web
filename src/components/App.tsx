@@ -10,10 +10,7 @@ export class App extends React.Component {
 
   convert = (codeFrom: string) => {
     try {
-      return Babel.transform(codeFrom, {
-        plugins: [FL2TS()],
-        presets: ['es2015'],
-      }).code;
+      return Babel.transform(codeFrom, { plugins: [FL2TS()] }).code;
     } catch (e) {
       console.error(e);
       return "";
@@ -30,7 +27,6 @@ export class App extends React.Component {
       padding={10}
       style={{
         fontFamily: '"Fira code", "Fira Mono", monospace',
-        // fontSize: 12,
       }}
     />;
 
@@ -44,7 +40,6 @@ export class App extends React.Component {
       padding={10}
       style={{
         fontFamily: '"Fira code", "Fira Mono", monospace',
-        // fontSize: 12,
       }}
     />;
 
