@@ -3,6 +3,9 @@ import Editor from 'react-simple-code-editor';
 import * as Prism from 'prismjs';
 import * as FL2TS from '../babel-plugin-flow-to-typescript/index';
 
+require('prismjs/components/prism-typescript');
+require('prismjs/components/prism-flow');
+
 const FL2TSPlugin = FL2TS();
 const initialCode = '(num: ?number) => num ? num + 1 : ""';
 
@@ -18,31 +21,27 @@ export class App extends React.Component {
     }
   }
 
-  renderFrom = () =>
+  renderEditor = (value: string,
+    onValueChange: (value: string) => void, language: Prism.LanguageDefinition
+  ) =>
     <Editor
-      value={this.state.code}
-      onValueChange={(code: string) => this.setState({ code })}
+      value={value}
+      onValueChange={onValueChange}
       highlight={(code: string) =>
-        Prism.highlight(code, Prism.languages.javascript)
+        Prism.highlight(code, language)
       }
       padding={10}
       style={{
         fontFamily: '"Fira code", "Fira Mono", monospace',
+        overflow: 'scroll',
       }}
     />;
 
-  renderTo = () =>
-    <Editor
-      value={this.convert(this.state.code)}
-      onValueChange={null}
-      highlight={(code: string) =>
-        Prism.highlight(code, Prism.languages.javascript)
-      }
-      padding={10}
-      style={{
-        fontFamily: '"Fira code", "Fira Mono", monospace',
-      }}
-    />;
+  renderFrom = () => this.renderEditor(this.state.code,
+    (code: string) => this.setState({ code }), Prism.languages.flow)
+
+  renderTo = () => this.renderEditor(this.convert(this.state.code),
+    null, Prism.languages.typescript)
 
   render() {
     return (

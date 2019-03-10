@@ -1,11 +1,16 @@
+h1 {
+  font-size: 1.2em;
+  margin: 0.7em;
+}
+
 #main {
   display: flex;
 }
 
 #main > .editor {
+  border: #c0c0c0 solid 1px;
   display: flex;
   flex-basis: 100%;
-  flex-basis: 100%;
-  border: #c0c0c0 solid 1px;
-  margin: 0 2vw;
+  height: 90vh;
+  margin: 0 1vw;
 }
