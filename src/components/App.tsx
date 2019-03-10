@@ -3,6 +3,7 @@ import Editor from 'react-simple-code-editor';
 import * as Prism from 'prismjs';
 import * as FL2TS from '../babel-plugin-flow-to-typescript/index';
 
+const FL2TSPlugin = FL2TS();
 const initialCode = '(num: ?number) => num ? num + 1 : ""';
 
 export class App extends React.Component {
@@ -10,7 +11,7 @@ export class App extends React.Component {
 
   convert = (codeFrom: string) => {
     try {
-      return Babel.transform(codeFrom, { plugins: [FL2TS()] }).code;
+      return Babel.transform(codeFrom, { plugins: [FL2TSPlugin] }).code;
     } catch (e) {
       console.error(e);
       return "";
