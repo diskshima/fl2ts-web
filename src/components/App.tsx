@@ -46,10 +46,12 @@ export class App extends React.Component {
   render() {
     return (
       <div id="main">
-        <div className="editor">
+        <div className="editor-box">
+          <h3>Flow</h3>
           {this.renderFrom()}
         </div>
-        <div className="editor">
+        <div className="editor-box">
+          <h3>TypeScript</h3>
           {this.renderTo()}
         </div>
       </div>
