@@ -50,9 +50,13 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        {this.renderFrom()}
-        {this.renderTo()}
+      <div id="main">
+        <div className="editor">
+          {this.renderFrom()}
+        </div>
+        <div className="editor">
+          {this.renderTo()}
+        </div>
       </div>
     );
   }
