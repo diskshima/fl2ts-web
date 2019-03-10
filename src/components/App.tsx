@@ -1,14 +1,23 @@
 import * as React from 'react';
 import Editor from 'react-simple-code-editor';
 import * as Prism from 'prismjs';
+import * as FL2TS from '../babel-plugin-flow-to-typescript/index';
 
-const initialCode = '(num) => num + 1';
+const initialCode = '(num: ?number) => num ? num + 1 : ""';
 
 export class App extends React.Component {
   state = { code: initialCode };
 
   convert = (codeFrom: string) => {
-    return codeFrom + '!!!!!!!!';
+    try {
+      return Babel.transform(codeFrom, {
+        plugins: [FL2TS()],
+        presets: ['es2015'],
+      }).code;
+    } catch (e) {
+      console.error(e);
+      return "";
+    }
   }
 
   renderFrom = () =>
