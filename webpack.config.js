@@ -1,3 +1,5 @@
+const CopyPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   entry: "./src/index.tsx",
   output: {
@@ -34,5 +36,12 @@ module.exports = {
 
   optimization: {
     minimize: false
-  }
+  },
+
+  plugins: [
+    new CopyPlugin([
+      { from: 'html/*', to: './', flatten: true },
+      { from: 'css/*', to: './', flatten: true },
+    ]),
+  ]
 };
