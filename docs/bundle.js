@@ -305,7 +305,6 @@ exports.isTSEnumDeclaration = isTSEnumDeclaration;
 exports.isTSEnumMember = isTSEnumMember;
 exports.isTSModuleDeclaration = isTSModuleDeclaration;
 exports.isTSModuleBlock = isTSModuleBlock;
-exports.isTSImportType = isTSImportType;
 exports.isTSImportEqualsDeclaration = isTSImportEqualsDeclaration;
 exports.isTSExternalModuleReference = isTSExternalModuleReference;
 exports.isTSNonNullExpression = isTSNonNullExpression;
@@ -3531,21 +3530,6 @@ function isTSModuleBlock(node, opts) {
   return false;
 }
 
-function isTSImportType(node, opts) {
-  if (!node) return false;
-  const nodeType = node.type;
-
-  if (nodeType === "TSImportType") {
-    if (typeof opts === "undefined") {
-      return true;
-    } else {
-      return (0, _shallowEqual.default)(node, opts);
-    }
-  }
-
-  return false;
-}
-
 function isTSImportEqualsDeclaration(node, opts) {
   if (!node) return false;
   const nodeType = node.type;
@@ -3715,7 +3699,7 @@ function isScopable(node, opts) {
   if (!node) return false;
   const nodeType = node.type;
 
-  if (nodeType === "Scopable" || "BlockStatement" === nodeType || "CatchClause" === nodeType || "DoWhileStatement" === nodeType || "ForInStatement" === nodeType || "ForStatement" === nodeType || "FunctionDeclaration" === nodeType || "FunctionExpression" === nodeType || "Program" === nodeType || "ObjectMethod" === nodeType || "SwitchStatement" === nodeType || "WhileStatement" === nodeType || "ArrowFunctionExpression" === nodeType || "ClassDeclaration" === nodeType || "ClassExpression" === nodeType || "ForOfStatement" === nodeType || "ClassMethod" === nodeType || "ClassPrivateMethod" === nodeType) {
+  if (nodeType === "Scopable" || "BlockStatement" === nodeType || "CatchClause" === nodeType || "DoWhileStatement" === nodeType || "ForInStatement" === nodeType || "ForStatement" === nodeType || "FunctionDeclaration" === nodeType || "FunctionExpression" === nodeType || "Program" === nodeType || "ObjectMethod" === nodeType || "SwitchStatement" === nodeType || "WhileStatement" === nodeType || "ArrowFunctionExpression" === nodeType || "ClassDeclaration" === nodeType || "ClassExpression" === nodeType || "ForOfStatement" === nodeType || "ClassMethod" === nodeType) {
     if (typeof opts === "undefined") {
       return true;
     } else {
@@ -3730,7 +3714,7 @@ function isBlockParent(node, opts) {
   if (!node) return false;
   const nodeType = node.type;
 
-  if (nodeType === "BlockParent" || "BlockStatement" === nodeType || "CatchClause" === nodeType || "DoWhileStatement" === nodeType || "ForInStatement" === nodeType || "ForStatement" === nodeType || "FunctionDeclaration" === nodeType || "FunctionExpression" === nodeType || "Program" === nodeType || "ObjectMethod" === nodeType || "SwitchStatement" === nodeType || "WhileStatement" === nodeType || "ArrowFunctionExpression" === nodeType || "ForOfStatement" === nodeType || "ClassMethod" === nodeType || "ClassPrivateMethod" === nodeType) {
+  if (nodeType === "BlockParent" || "BlockStatement" === nodeType || "CatchClause" === nodeType || "DoWhileStatement" === nodeType || "ForInStatement" === nodeType || "ForStatement" === nodeType || "FunctionDeclaration" === nodeType || "FunctionExpression" === nodeType || "Program" === nodeType || "ObjectMethod" === nodeType || "SwitchStatement" === nodeType || "WhileStatement" === nodeType || "ArrowFunctionExpression" === nodeType || "ForOfStatement" === nodeType || "ClassMethod" === nodeType) {
     if (typeof opts === "undefined") {
       return true;
     } else {
@@ -3910,7 +3894,7 @@ function isFunctionParent(node, opts) {
   if (!node) return false;
   const nodeType = node.type;
 
-  if (nodeType === "FunctionParent" || "FunctionDeclaration" === nodeType || "FunctionExpression" === nodeType || "ObjectMethod" === nodeType || "ArrowFunctionExpression" === nodeType || "ClassMethod" === nodeType || "ClassPrivateMethod" === nodeType) {
+  if (nodeType === "FunctionParent" || "FunctionDeclaration" === nodeType || "FunctionExpression" === nodeType || "ObjectMethod" === nodeType || "ArrowFunctionExpression" === nodeType || "ClassMethod" === nodeType) {
     if (typeof opts === "undefined") {
       return true;
     } else {
@@ -4300,7 +4284,7 @@ function isTSType(node, opts) {
   if (!node) return false;
   const nodeType = node.type;
 
-  if (nodeType === "TSType" || "TSAnyKeyword" === nodeType || "TSUnknownKeyword" === nodeType || "TSNumberKeyword" === nodeType || "TSObjectKeyword" === nodeType || "TSBooleanKeyword" === nodeType || "TSStringKeyword" === nodeType || "TSSymbolKeyword" === nodeType || "TSVoidKeyword" === nodeType || "TSUndefinedKeyword" === nodeType || "TSNullKeyword" === nodeType || "TSNeverKeyword" === nodeType || "TSThisType" === nodeType || "TSFunctionType" === nodeType || "TSConstructorType" === nodeType || "TSTypeReference" === nodeType || "TSTypePredicate" === nodeType || "TSTypeQuery" === nodeType || "TSTypeLiteral" === nodeType || "TSArrayType" === nodeType || "TSTupleType" === nodeType || "TSOptionalType" === nodeType || "TSRestType" === nodeType || "TSUnionType" === nodeType || "TSIntersectionType" === nodeType || "TSConditionalType" === nodeType || "TSInferType" === nodeType || "TSParenthesizedType" === nodeType || "TSTypeOperator" === nodeType || "TSIndexedAccessType" === nodeType || "TSMappedType" === nodeType || "TSLiteralType" === nodeType || "TSExpressionWithTypeArguments" === nodeType || "TSImportType" === nodeType) {
+  if (nodeType === "TSType" || "TSAnyKeyword" === nodeType || "TSUnknownKeyword" === nodeType || "TSNumberKeyword" === nodeType || "TSObjectKeyword" === nodeType || "TSBooleanKeyword" === nodeType || "TSStringKeyword" === nodeType || "TSSymbolKeyword" === nodeType || "TSVoidKeyword" === nodeType || "TSUndefinedKeyword" === nodeType || "TSNullKeyword" === nodeType || "TSNeverKeyword" === nodeType || "TSThisType" === nodeType || "TSFunctionType" === nodeType || "TSConstructorType" === nodeType || "TSTypeReference" === nodeType || "TSTypePredicate" === nodeType || "TSTypeQuery" === nodeType || "TSTypeLiteral" === nodeType || "TSArrayType" === nodeType || "TSTupleType" === nodeType || "TSOptionalType" === nodeType || "TSRestType" === nodeType || "TSUnionType" === nodeType || "TSIntersectionType" === nodeType || "TSConditionalType" === nodeType || "TSInferType" === nodeType || "TSParenthesizedType" === nodeType || "TSTypeOperator" === nodeType || "TSIndexedAccessType" === nodeType || "TSMappedType" === nodeType || "TSLiteralType" === nodeType || "TSExpressionWithTypeArguments" === nodeType) {
     if (typeof opts === "undefined") {
       return true;
     } else {
@@ -4596,7 +4580,6 @@ exports.tSEnumDeclaration = exports.tsEnumDeclaration = exports.TSEnumDeclaratio
 exports.tSEnumMember = exports.tsEnumMember = exports.TSEnumMember = TSEnumMember;
 exports.tSModuleDeclaration = exports.tsModuleDeclaration = exports.TSModuleDeclaration = TSModuleDeclaration;
 exports.tSModuleBlock = exports.tsModuleBlock = exports.TSModuleBlock = TSModuleBlock;
-exports.tSImportType = exports.tsImportType = exports.TSImportType = TSImportType;
 exports.tSImportEqualsDeclaration = exports.tsImportEqualsDeclaration = exports.TSImportEqualsDeclaration = TSImportEqualsDeclaration;
 exports.tSExternalModuleReference = exports.tsExternalModuleReference = exports.TSExternalModuleReference = TSExternalModuleReference;
 exports.tSNonNullExpression = exports.tsNonNullExpression = exports.TSNonNullExpression = TSNonNullExpression;
@@ -5457,10 +5440,6 @@ function TSModuleDeclaration(...args) {
 
 function TSModuleBlock(...args) {
   return (0, _builder.default)("TSModuleBlock", ...args);
-}
-
-function TSImportType(...args) {
-  return (0, _builder.default)("TSImportType", ...args);
 }
 
 function TSImportEqualsDeclaration(...args) {
@@ -6947,10 +6926,6 @@ function cloneNode(node, deep = true) {
   if (type === "Identifier") {
     newNode.name = node.name;
 
-    if (has(node, "optional") && typeof node.optional === "boolean") {
-      newNode.optional = node.optional;
-    }
-
     if (has(node, "typeAnnotation")) {
       newNode.typeAnnotation = deep ? cloneIfNodeOrArray(node.typeAnnotation, true) : node.typeAnnotation;
     }
@@ -7891,7 +7866,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 });
 const functionCommon = {
   params: {
-    validate: (0, _utils.chain)((0, _utils.assertValueType)("array"), (0, _utils.assertEach)((0, _utils.assertNodeType)("Identifier", "Pattern", "RestElement", "TSParameterProperty")))
+    validate: (0, _utils.chain)((0, _utils.assertValueType)("array"), (0, _utils.assertEach)((0, _utils.assertNodeType)("LVal")))
   },
   generator: {
     default: false,
@@ -7960,7 +7935,7 @@ const patternLikeCommon = {
 exports.patternLikeCommon = patternLikeCommon;
 (0, _utils.default)("Identifier", {
   builder: ["name"],
-  visitor: ["typeAnnotation", "decorators"],
+  visitor: ["typeAnnotation"],
   aliases: ["Expression", "PatternLike", "LVal", "TSEntityName"],
   fields: Object.assign({}, patternLikeCommon, {
     name: {
@@ -8443,7 +8418,7 @@ var _core = __webpack_require__(35);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 (0, _utils.default)("AssignmentPattern", {
-  visitor: ["left", "right", "decorators"],
+  visitor: ["left", "right"],
   builder: ["left", "right"],
   aliases: ["Pattern", "PatternLike", "LVal"],
   fields: Object.assign({}, _core.patternLikeCommon, {
@@ -8632,10 +8607,6 @@ const classCommon = {
     },
     source: {
       validate: (0, _utils.assertNodeType)("StringLiteral")
-    },
-    importKind: {
-      validate: (0, _utils.assertOneOf)("type", "typeof", "value"),
-      optional: true
     }
   }
 });
@@ -8668,8 +8639,7 @@ const classCommon = {
       validate: (0, _utils.assertNodeType)("Identifier")
     },
     importKind: {
-      validate: (0, _utils.assertOneOf)("type", "typeof"),
-      optional: true
+      validate: (0, _utils.assertOneOf)(null, "type", "typeof")
     }
   }
 });
@@ -8744,7 +8714,7 @@ exports.classMethodOrDeclareMethodCommon = classMethodOrDeclareMethodCommon;
   })
 });
 (0, _utils.default)("ObjectPattern", {
-  visitor: ["properties", "typeAnnotation", "decorators"],
+  visitor: ["properties", "typeAnnotation"],
   builder: ["properties"],
   aliases: ["Pattern", "PatternLike", "LVal"],
   fields: Object.assign({}, _core.patternLikeCommon, {
@@ -14528,7 +14498,7 @@ const defineInterfaceishType = (name, typeParameterType = "TypeParameterDeclarat
     typeParameters: (0, _utils.validateOptionalType)("TypeParameterInstantiation")
   }
 });
-defineInterfaceishType("DeclareClass");
+defineInterfaceishType("DeclareClass", "TypeParameterInstantiation");
 (0, _utils.default)("DeclareFunction", {
   visitor: ["id"],
   aliases: ["Flow", "FlowDeclaration", "Statement", "Declaration"],
@@ -14631,7 +14601,7 @@ defineInterfaceishType("DeclareInterface");
   visitor: ["id", "typeParameters"],
   aliases: ["Flow", "FlowType"],
   fields: {
-    id: (0, _utils.validateType)(["Identifier", "QualifiedTypeIdentifier"]),
+    id: (0, _utils.validateType)("Identifier"),
     typeParameters: (0, _utils.validateOptionalType)("TypeParameterInstantiation")
   }
 });
@@ -14642,7 +14612,7 @@ defineInterfaceishType("DeclareInterface");
   visitor: ["id", "typeParameters"],
   aliases: ["Flow"],
   fields: {
-    id: (0, _utils.validateType)(["Identifier", "QualifiedTypeIdentifier"]),
+    id: (0, _utils.validateType)("Identifier"),
     typeParameters: (0, _utils.validateOptionalType)("TypeParameterInstantiation")
   }
 });
@@ -15195,7 +15165,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 (0, _utils.default)("ClassPrivateMethod", {
   builder: ["kind", "key", "params", "body", "static"],
   visitor: ["key", "params", "body", "decorators", "returnType", "typeParameters"],
-  aliases: ["Function", "Scopable", "BlockParent", "FunctionParent", "Method", "Private"],
+  aliases: ["Method", "Private", "Function"],
   fields: Object.assign({}, _es.classMethodOrDeclareMethodCommon, {
     key: {
       validate: (0, _utils.assertNodeType)("PrivateName")
@@ -15404,7 +15374,7 @@ const fnOrCtr = {
   aliases: ["TSType"],
   visitor: ["exprName"],
   fields: {
-    exprName: (0, _utils.validateType)(["TSEntityName", "TSImportType"])
+    exprName: (0, _utils.validateType)("TSEntityName")
   }
 });
 (0, _utils.default)("TSTypeLiteral", {
@@ -15591,15 +15561,6 @@ const unionOrIntersection = {
   visitor: ["body"],
   fields: {
     body: (0, _utils.validateArrayOfType)("Statement")
-  }
-});
-(0, _utils.default)("TSImportType", {
-  aliases: ["TSType"],
-  visitor: ["argument", "qualifier", "typeParameters"],
-  fields: {
-    argument: (0, _utils.validateType)("StringLiteral"),
-    qualifier: (0, _utils.validateOptionalType)("TSEntityName"),
-    typeParameters: (0, _utils.validateOptionalType)("TSTypeParameterInstantiation")
   }
 });
 (0, _utils.default)("TSImportEqualsDeclaration", {
@@ -15923,7 +15884,6 @@ exports.assertTSEnumDeclaration = assertTSEnumDeclaration;
 exports.assertTSEnumMember = assertTSEnumMember;
 exports.assertTSModuleDeclaration = assertTSModuleDeclaration;
 exports.assertTSModuleBlock = assertTSModuleBlock;
-exports.assertTSImportType = assertTSImportType;
 exports.assertTSImportEqualsDeclaration = assertTSImportEqualsDeclaration;
 exports.assertTSExternalModuleReference = assertTSExternalModuleReference;
 exports.assertTSNonNullExpression = assertTSNonNullExpression;
@@ -16832,10 +16792,6 @@ function assertTSModuleDeclaration(node, opts = {}) {
 
 function assertTSModuleBlock(node, opts = {}) {
   assert("TSModuleBlock", node, opts);
-}
-
-function assertTSImportType(node, opts = {}) {
-  assert("TSImportType", node, opts);
 }
 
 function assertTSImportEqualsDeclaration(node, opts = {}) {
