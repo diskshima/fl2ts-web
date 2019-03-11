@@ -1,0 +1,3 @@
+[submodule "src/babel-plugin-flow-to-typescript"]
+	path = src/babel-plugin-flow-to-typescript
+	url = git@github.com:steelbrain/babel-plugin-flow-to-typescript.git
