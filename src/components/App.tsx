@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Editor from 'react-simple-code-editor';
 import * as Prism from 'prismjs';
-import * as FL2TS from '../babel-plugin-flow-to-typescript/index';
+import * as FL2TS from '../babel-plugin-flow-to-typescript/dist/index';
 
 require('prismjs/components/prism-typescript');
 require('prismjs/components/prism-flow');
