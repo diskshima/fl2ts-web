@@ -4,7 +4,7 @@ Flow to TypeScript converter that works inside the browser.
 
 The code is hosted on github.io: https://diskshima.github.io/fl2ts-web/
 
-:warning: This work is based on [Kiikurage/babel-plugin-flow-to-typescript](https://github.com/Kiikurage/babel-plugin-flow-to-typescript/) but as the main repo is not being updated often, this repository uses [a branch from a fork by steelbrain](https://github.com/steelbrain/babel-plugin-flow-to-typescript/tree/upstream-attempt).
+This work uses the code in [Kiikurage/babel-plugin-flow-to-typescript](https://github.com/Kiikurage/babel-plugin-flow-to-typescript/) to convert Flow to TypeScript.
 
 ## Development
 

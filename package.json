@@ -1,6 +1,6 @@
 {
   "name": "fl2ts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Flow to TypeScript converter",
   "main": "index.js",
   "scripts": {

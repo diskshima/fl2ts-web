@@ -6,7 +6,7 @@ import * as FL2TS from '../babel-plugin-flow-to-typescript/dist/index';
 require('prismjs/components/prism-typescript');
 require('prismjs/components/prism-flow');
 
-const FL2TSPlugin = FL2TS();
+const FL2TSPlugin = FL2TS;
 const initialCode = '(num: ?number) => num ? num + 1 : ""';
 
 export class App extends React.Component {
