@@ -28,7 +28,7 @@
     "source-map-loader": "^0.2.4",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "@types/prismjs": "^1.9.1",
