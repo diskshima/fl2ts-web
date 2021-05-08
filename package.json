@@ -22,7 +22,7 @@
     "@types/react-dom": "^16.8.0",
     "awesome-typescript-loader": "^5.2.1",
     "copy-webpack-plugin": "^5.0.0",
-    "lodash": ">=4.17.19",
+    "lodash": ">=4.17.21",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "source-map-loader": "^0.2.4",
